@@ -35,9 +35,26 @@ public class Login {
     public String usuarios() {
         StringBuilder str = new StringBuilder();
         for (Usuarios i : usuarios) {
-            str.append(i + "\n");
+            str.append(i.getNickname() + " | " + i.getPassword() + "\n");
         }
         return str.toString();
     }
 
+    public boolean jaExiste(String nome) {
+        for (Usuarios i : usuarios) {
+            if (i.getNickname().equals(nome)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void excluirUsuario(String usuario) {
+        for (Usuarios i : usuarios) {
+            if (i.getNickname().equals(usuario)) {
+                int index = usuarios.indexOf(i);
+                usuarios.remove(index);
+            }
+        }
+    }
 }
