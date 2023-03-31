@@ -49,12 +49,16 @@ public class Login {
         return false;
     }
 
-    public void excluirUsuario(String usuario) {
+    public Usuarios identifica(String nomeuser) {
         for (Usuarios i : usuarios) {
-            if (i.getNickname().equals(usuario)) {
-                int index = usuarios.indexOf(i);
-                usuarios.remove(index);
+            if (i.getNickname().equals(nomeuser)) {
+                return i;
             }
         }
+        return null;
+    }
+
+    public void excluir(Usuarios user) {
+        usuarios.remove(user);
     }
 }

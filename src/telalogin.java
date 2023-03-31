@@ -6,11 +6,12 @@ import javax.swing.JOptionPane;
 public class telalogin extends javax.swing.JFrame {
            Usuarios currentuser;
            Login auth;
+           Empresa empresa;
            
-    public telalogin( Usuarios currentuser, Login auth) {
+    public telalogin( Usuarios currentuser, Login auth, Empresa empresa) {
         this.currentuser = currentuser;
         this.auth = auth;
-        
+        this.empresa = empresa;
         initComponents();
 
         setSize(230, 270);
@@ -99,7 +100,7 @@ public class telalogin extends javax.swing.JFrame {
  
         if( auth.login(campologin.getText(), camposenha.getText()) != null){
             setVisible(false);
-            new tela( auth.login(campologin.getText(), camposenha.getText()), auth ).setVisible(true);
+            new tela( auth.login(campologin.getText(), camposenha.getText()), auth, empresa).setVisible(true);
             
         } else {
             JOptionPane.showMessageDialog(this, "Login não encontrado no sistema!", "Login", 1);

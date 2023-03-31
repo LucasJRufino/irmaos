@@ -19,7 +19,7 @@ public class telausuario extends javax.swing.JFrame {
         this.auth = auth;
         initComponents();
         textoconsultausuario.setText(auth.usuarios());
-        setSize(400, 550);
+        setSize(400, 500);
         setDefaultCloseOperation(tela.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -198,7 +198,10 @@ public class telausuario extends javax.swing.JFrame {
         if (usuarioExclusao.equals("lucas.teste")){
         JOptionPane.showMessageDialog(null, "O administrador não pode ser excluído", "Erro!", 2);
         } else {
-        auth.excluirUsuario(usuarioExclusao);
+        Usuarios usuarioExcluir = auth.identifica(usuarioExclusao);
+        ListaAcesso.add(auth.getNome(currentuser), "Removeu usuário: " + usuarioExclusao);
+        auth.excluir(usuarioExcluir);
+        textoconsultausuario.setText(auth.usuarios());
         JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!", "Exclusão Concluída", 1);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
