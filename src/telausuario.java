@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
  */
 public class telausuario extends javax.swing.JFrame {
 
-    Usuarios currentuser;
+    Usuario currentuser;
     Login auth;
 
-    public telausuario(Usuarios user, Login auth) {
+    public telausuario(Usuario user, Login auth) {
         currentuser = user;
         this.auth = auth;
         initComponents();
@@ -62,6 +62,7 @@ public class telausuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        textoconsultausuario.setEditable(false);
         textoconsultausuario.setColumns(20);
         textoconsultausuario.setRows(5);
         jScrollPane1.setViewportView(textoconsultausuario);
@@ -198,7 +199,7 @@ public class telausuario extends javax.swing.JFrame {
         if (usuarioExclusao.equals("lucas.teste")){
         JOptionPane.showMessageDialog(null, "O administrador não pode ser excluído", "Erro!", 2);
         } else {
-        Usuarios usuarioExcluir = auth.identifica(usuarioExclusao);
+        Usuario usuarioExcluir = auth.identifica(usuarioExclusao);
         ListaAcesso.add(auth.getNome(currentuser), "Removeu usuário: " + usuarioExclusao);
         auth.excluir(usuarioExcluir);
         textoconsultausuario.setText(auth.usuarios());

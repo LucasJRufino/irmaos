@@ -4,11 +4,11 @@ import javax.swing.JOptionPane;
 
 
 public class telalogin extends javax.swing.JFrame {
-           Usuarios currentuser;
+           Usuario currentuser;
            Login auth;
            Empresa empresa;
            
-    public telalogin( Usuarios currentuser, Login auth, Empresa empresa) {
+    public telalogin( Usuario currentuser, Login auth, Empresa empresa) {
         this.currentuser = currentuser;
         this.auth = auth;
         this.empresa = empresa;

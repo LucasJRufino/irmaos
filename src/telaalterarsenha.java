@@ -16,9 +16,9 @@ public class telaalterarsenha extends javax.swing.JFrame {
      * Creates new form telaalterarsenha
      */
     
-    Usuarios currentuser;
+    Usuario currentuser;
     Login auth;
-    public telaalterarsenha(Usuarios user, Login auth) {
+    public telaalterarsenha(Usuario user, Login auth) {
         currentuser = user;
         this.auth = auth;
         

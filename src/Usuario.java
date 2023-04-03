@@ -1,14 +1,14 @@
 
 
-public class Usuarios {
+public class Usuario {
     public String nickname;
     public String password;
     public String cpf;
 
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios( String nome, String senha) {
+    public Usuario( String nome, String senha) {
         nickname = nome;
         password = senha;
     }

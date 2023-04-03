@@ -3,28 +3,28 @@ import java.util.ArrayList;
 
 public class Login {
 
-    Usuarios user;
-    Usuarios altera;
-    ArrayList<Usuarios> usuarios = new ArrayList<>();
+    Usuario user;
+    Usuario altera;
+    ArrayList<Usuario> usuarios = new ArrayList<>();
 
     public Login() {
     }
 
     public void register(String nome, String senha) {
-        usuarios.add(new Usuarios(nome, senha));
+        usuarios.add(new Usuario(nome, senha));
     }
 
-    public String getNome(Usuarios user) {
+    public String getNome(Usuario user) {
         return user.getNickname();
     }
 
-    public void setSenha(Usuarios user, String senha) {
+    public void setSenha(Usuario user, String senha) {
         int index = usuarios.indexOf(user);
         usuarios.get(index).setPassword(senha);
     }
 
-    public Usuarios login(String login, String senha) {
-        for (Usuarios i : usuarios) {
+    public Usuario login(String login, String senha) {
+        for (Usuario i : usuarios) {
             if (i.autentica(login, senha)) {
                 return i;
             }
@@ -34,14 +34,14 @@ public class Login {
 
     public String usuarios() {
         StringBuilder str = new StringBuilder();
-        for (Usuarios i : usuarios) {
+        for (Usuario i : usuarios) {
             str.append(i.getNickname() + " | " + i.getPassword() + "\n");
         }
         return str.toString();
     }
 
     public boolean jaExiste(String nome) {
-        for (Usuarios i : usuarios) {
+        for (Usuario i : usuarios) {
             if (i.getNickname().equals(nome)) {
                 return true;
             }
@@ -49,8 +49,8 @@ public class Login {
         return false;
     }
 
-    public Usuarios identifica(String nomeuser) {
-        for (Usuarios i : usuarios) {
+    public Usuario identifica(String nomeuser) {
+        for (Usuario i : usuarios) {
             if (i.getNickname().equals(nomeuser)) {
                 return i;
             }
@@ -58,7 +58,7 @@ public class Login {
         return null;
     }
 
-    public void excluir(Usuarios user) {
+    public void excluir(Usuario user) {
         usuarios.remove(user);
     }
 }

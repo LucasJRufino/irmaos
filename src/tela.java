@@ -3,11 +3,11 @@ import javax.swing.JOptionPane;
 
 
 public class tela extends javax.swing.JFrame {
-    Usuarios currentuser;
+    Usuario currentuser;
     Login auth;
     Empresa empresa;
     
-    public tela( Usuarios user, Login auth, Empresa empresa ) {
+    public tela( Usuario user, Login auth, Empresa empresa ) {
         currentuser = user;
         this.auth = auth;
         this.empresa = empresa;
@@ -49,7 +49,9 @@ public class tela extends javax.swing.JFrame {
 
         jPanel1.setBackground(empresa.getCor());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Bem vindo(a) "+ currentuser.getNickname());
 

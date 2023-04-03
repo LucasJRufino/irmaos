@@ -8,8 +8,8 @@ public class telaempresa extends javax.swing.JFrame {
         Empresa empresa;
         Color atualcor;
         Login auth;
-        Usuarios currentuser;
-    public telaempresa(Empresa empresa, Login auth, Usuarios currentuser ) {
+        Usuario currentuser;
+    public telaempresa(Empresa empresa, Login auth, Usuario currentuser ) {
         this.empresa = empresa;
         this.auth = auth;
         this.currentuser = currentuser;
