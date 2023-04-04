@@ -1,14 +1,13 @@
 
 import javax.swing.JOptionPane;
 
-
-
 public class telalogin extends javax.swing.JFrame {
-           Usuario currentuser;
-           Login auth;
-           Empresa empresa;
-           
-    public telalogin( Usuario currentuser, Login auth, Empresa empresa) {
+
+    Usuario currentuser;
+    Login auth;
+    Empresa empresa;
+
+    public telalogin(Usuario currentuser, Login auth, Empresa empresa) {
         this.currentuser = currentuser;
         this.auth = auth;
         this.empresa = empresa;
@@ -97,10 +96,10 @@ public class telalogin extends javax.swing.JFrame {
     }//GEN-LAST:event_campologinActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- 
-        if( auth.login(campologin.getText(), camposenha.getText()) != null){
+
+        if (auth.login(campologin.getText(), camposenha.getText()) != null) {
             setVisible(false);
-            new tela( auth.login(campologin.getText(), camposenha.getText()), auth, empresa).setVisible(true);
+            new tela(auth.login(campologin.getText(), camposenha.getText()), auth, empresa).setVisible(true);
             
         } else {
             JOptionPane.showMessageDialog(this, "Login não encontrado no sistema!", "Login", 1);

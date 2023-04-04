@@ -1,10 +1,9 @@
 
-
 public class Usuario {
+
     public String nickname;
     public String password;
-    public String cpf;
-
+    
     public Usuario() {
     }
 
@@ -12,7 +11,7 @@ public class Usuario {
         nickname = nome;
         password = senha;
     }
-    
+
     public String getNickname() {
         return nickname;
     }
@@ -27,14 +26,6 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public boolean autentica(String login, String senha) {

@@ -193,17 +193,17 @@ public class telausuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        String usuarioExclusao = JOptionPane.showInputDialog(null, "Qual o usuario que será excluido?", 
+
+        String usuarioExclusao = JOptionPane.showInputDialog(null, "Qual o usuario que será excluido?",
                 "Excluir usuário", 3);
-        if (usuarioExclusao.equals("lucas.teste")){
-        JOptionPane.showMessageDialog(null, "O administrador não pode ser excluído", "Erro!", 2);
+        if (usuarioExclusao.equals("lucas.teste")) {
+            JOptionPane.showMessageDialog(null, "O administrador não pode ser excluído", "Erro!", 2);
         } else {
-        Usuario usuarioExcluir = auth.identifica(usuarioExclusao);
-        ListaAcesso.add(auth.getNome(currentuser), "Removeu usuário: " + usuarioExclusao);
-        auth.excluir(usuarioExcluir);
-        textoconsultausuario.setText(auth.usuarios());
-        JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!", "Exclusão Concluída", 1);
+            Usuario usuarioExcluir = auth.identifica(usuarioExclusao);
+            ListaAcesso.add(auth.getNome(currentuser), "Removeu usuário: " + usuarioExclusao);
+            auth.excluir(usuarioExcluir);
+            textoconsultausuario.setText(auth.usuarios());
+            JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!", "Exclusão Concluída", 1);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
