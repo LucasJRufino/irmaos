@@ -12,7 +12,6 @@ public class Empresa {
     String bairro;
     String uf;
     String celular;
-    File logo;
 
     public Empresa(String nome, Color cor, String cnpj, String cep, String endereco, String numero, String bairro, String uf, String celular) {
         this.nome = nome;
@@ -110,12 +109,4 @@ public class Empresa {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
-    public File getLogo(){
-        return logo;
-    }
-    public void setLogo(File logo){
-        this.logo = logo;
-    }
-    
 }

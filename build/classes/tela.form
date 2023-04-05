@@ -8,9 +8,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Busca R&#xe1;pida"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="if(currentuser.getNickname().equals(&quot;lucas.teste&quot;)){&#xa;menubusca.setVisible(false);&#xa;}"/>
-          </AuxValues>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menubi">
           <Properties>
@@ -26,26 +23,92 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Administra&#xe7;&#xe3;o"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuadministracaomanutencao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manuten&#xe7;&#xe3;o"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuadministracaomanutencaoassociado">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Associado"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuconfiguracao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xe3;o"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuconfiguracaoagendador">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agendador de Tarefa"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuconfiguracaoagendadorfi">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="FI"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuferramenta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ferramenta"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuferramentaemail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gerenciador de e-mail"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuferramentasms">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gerenciador de SMS"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuferramentasmsActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menurelatorio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menurelatorioassociado">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Associado"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menurelatorioassociadoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menurelatoriosegurado">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Segurado"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menurelatoriodependente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dependente"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuseguranca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Seguran&#xe7;a"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="arraypermissoes = new String[] {&quot;Empresa&quot;, &quot;Usu&#xe1;rio&quot;, &quot;Permiss&#xe3;o&quot;, &quot;Lista de Acesso&quot;, &quot;Alterar Senha&quot;, &quot;Sair&quot;};&#xa;menuseguranca.setVisible(currentuser.checapermissaocategoria(arraypermissoes));"/>
+          </AuxValues>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancaempresa">
               <Properties>
@@ -57,6 +120,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menusegurancaempresaActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancaempresa.setVisible(currentuser.temPermissao(&quot;Empresa&quot;));"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancausuario">
               <Properties>
@@ -65,11 +131,17 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menusegurancausuarioActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancausuario.setVisible(currentuser.temPermissao(&quot;Usu&#xe1;rio&quot;));"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancapermissao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Permiss&#xe3;o"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancapermissao.setVisible(currentuser.temPermissao(&quot;Permiss&#xe3;o&quot;));"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancalista">
               <Properties>
@@ -78,6 +150,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menusegurancalistaActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancalista.setVisible(currentuser.temPermissao(&quot;Lista de Acesso&quot;));"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancasenha">
               <Properties>
@@ -86,6 +161,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menusegurancasenhaActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancasenha.setVisible(currentuser.temPermissao(&quot;Alterar Senha&quot;));"/>
+              </AuxValues>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusegurancasair">
               <Properties>
@@ -94,6 +172,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menusegurancasairActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="menusegurancasair.setVisible(currentuser.temPermissao(&quot;Sair&quot;));"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -125,12 +206,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -147,10 +228,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jPanel2" max="32767" attributes="0"/>
-                      <Component id="jLabel1" pref="578" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" pref="579" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -158,9 +236,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace pref="229" max="32767" attributes="0"/>
               </Group>
@@ -185,29 +261,6 @@
             </Property>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel2">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="1e" green="1e" red="1e" type="rgb"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="try {&#xa;myPicture = ImageIO.read(empresa.getLogo());&#xa;}&#xa;catch(IOException e) {&#xa;  JOptionPane.showMessageDialog(null, &quot;Erro fatal!&quot;);&#xa;}&#xa;JLabel picLabel = new JLabel(new ImageIcon(myPicture));&#xa;this.add(picLabel);"/>
-          </AuxValues>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="138" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

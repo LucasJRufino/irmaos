@@ -3,8 +3,6 @@ import java.util.ArrayList;
 
 public class Login {
 
-    Usuario user;
-    Usuario altera;
     ArrayList<Usuario> usuarios = new ArrayList<>();
 
     public Login() {
@@ -61,4 +59,6 @@ public class Login {
     public void excluir(Usuario user) {
         usuarios.remove(user);
     }
+    
+    
 }

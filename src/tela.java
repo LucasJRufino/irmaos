@@ -1,9 +1,3 @@
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class tela extends javax.swing.JFrame {
@@ -11,8 +5,7 @@ public class tela extends javax.swing.JFrame {
     Usuario currentuser;
     Login auth;
     Empresa empresa;
-    BufferedImage myPicture;
-    
+    String[] arraypermissoes;
     public tela(Usuario user, Login auth, Empresa empresa) {
         currentuser = user;
         this.auth = auth;
@@ -32,15 +25,23 @@ public class tela extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         barramenu = new javax.swing.JMenuBar();
         menubusca = new javax.swing.JMenu();
         menubi = new javax.swing.JMenu();
         menufi = new javax.swing.JMenu();
         menuadministracao = new javax.swing.JMenu();
+        menuadministracaomanutencao = new javax.swing.JMenu();
+        menuadministracaomanutencaoassociado = new javax.swing.JMenuItem();
         menuconfiguracao = new javax.swing.JMenu();
+        menuconfiguracaoagendador = new javax.swing.JMenu();
+        menuconfiguracaoagendadorfi = new javax.swing.JMenuItem();
         menuferramenta = new javax.swing.JMenu();
+        menuferramentaemail = new javax.swing.JMenuItem();
+        menuferramentasms = new javax.swing.JMenuItem();
         menurelatorio = new javax.swing.JMenu();
+        menurelatorioassociado = new javax.swing.JMenuItem();
+        menurelatoriosegurado = new javax.swing.JMenuItem();
+        menurelatoriodependente = new javax.swing.JMenuItem();
         menuseguranca = new javax.swing.JMenu();
         menusegurancaempresa = new javax.swing.JMenuItem();
         menusegurancausuario = new javax.swing.JMenuItem();
@@ -61,55 +62,24 @@ public class tela extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Bem vindo(a) "+ currentuser.getNickname());
 
-        jPanel2.setForeground(new java.awt.Color(30, 30, 30));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 138, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(150, 150, 150)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
-        try {
-            myPicture = ImageIO.read(empresa.getLogo());
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(null, "Erro fatal!");
-        }
-        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        this.add(picLabel);
-
         menubusca.setText("Busca Rápida");
-
-        if(currentuser.getNickname().equals("lucas.teste")){
-            menubusca.setVisible(false);
-        }
-
         barramenu.add(menubusca);
 
         menubi.setText("BI");
@@ -119,15 +89,58 @@ public class tela extends javax.swing.JFrame {
         barramenu.add(menufi);
 
         menuadministracao.setText("Administração");
+
+        menuadministracaomanutencao.setText("Manutenção");
+
+        menuadministracaomanutencaoassociado.setText("Associado");
+        menuadministracaomanutencao.add(menuadministracaomanutencaoassociado);
+
+        menuadministracao.add(menuadministracaomanutencao);
+
         barramenu.add(menuadministracao);
 
         menuconfiguracao.setText("Configuração");
+
+        menuconfiguracaoagendador.setText("Agendador de Tarefa");
+
+        menuconfiguracaoagendadorfi.setText("FI");
+        menuconfiguracaoagendador.add(menuconfiguracaoagendadorfi);
+
+        menuconfiguracao.add(menuconfiguracaoagendador);
+
         barramenu.add(menuconfiguracao);
 
         menuferramenta.setText("Ferramenta");
+
+        menuferramentaemail.setText("Gerenciador de e-mail");
+        menuferramenta.add(menuferramentaemail);
+
+        menuferramentasms.setText("Gerenciador de SMS");
+        menuferramentasms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuferramentasmsActionPerformed(evt);
+            }
+        });
+        menuferramenta.add(menuferramentasms);
+
         barramenu.add(menuferramenta);
 
         menurelatorio.setText("Relatório");
+
+        menurelatorioassociado.setText("Associado");
+        menurelatorioassociado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menurelatorioassociadoActionPerformed(evt);
+            }
+        });
+        menurelatorio.add(menurelatorioassociado);
+
+        menurelatoriosegurado.setText("Segurado");
+        menurelatorio.add(menurelatoriosegurado);
+
+        menurelatoriodependente.setText("Dependente");
+        menurelatorio.add(menurelatoriodependente);
+
         barramenu.add(menurelatorio);
 
         menuseguranca.setText("Segurança");
@@ -140,6 +153,7 @@ public class tela extends javax.swing.JFrame {
             }
         });
         menuseguranca.add(menusegurancaempresa);
+        menusegurancaempresa.setVisible(currentuser.temPermissao("Empresa"));
 
         menusegurancausuario.setText("Usuário");
         menusegurancausuario.addActionListener(new java.awt.event.ActionListener() {
@@ -148,9 +162,11 @@ public class tela extends javax.swing.JFrame {
             }
         });
         menuseguranca.add(menusegurancausuario);
+        menusegurancausuario.setVisible(currentuser.temPermissao("Usuário"));
 
         menusegurancapermissao.setText("Permissão");
         menuseguranca.add(menusegurancapermissao);
+        menusegurancapermissao.setVisible(currentuser.temPermissao("Permissão"));
 
         menusegurancalista.setText("Lista de Acesso");
         menusegurancalista.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +175,7 @@ public class tela extends javax.swing.JFrame {
             }
         });
         menuseguranca.add(menusegurancalista);
+        menusegurancalista.setVisible(currentuser.temPermissao("Lista de Acesso"));
 
         menusegurancasenha.setText("Alterar Senha");
         menusegurancasenha.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +184,7 @@ public class tela extends javax.swing.JFrame {
             }
         });
         menuseguranca.add(menusegurancasenha);
+        menusegurancasenha.setVisible(currentuser.temPermissao("Alterar Senha"));
 
         menusegurancasair.setText("Sair");
         menusegurancasair.addActionListener(new java.awt.event.ActionListener() {
@@ -175,8 +193,11 @@ public class tela extends javax.swing.JFrame {
             }
         });
         menuseguranca.add(menusegurancasair);
+        menusegurancasair.setVisible(currentuser.temPermissao("Sair"));
 
         barramenu.add(menuseguranca);
+        arraypermissoes = new String[] {"Empresa", "Usuário", "Permissão", "Lista de Acesso", "Alterar Senha", "Sair"};
+        menuseguranca.setVisible(currentuser.checapermissaocategoria(arraypermissoes));
 
         setJMenuBar(barramenu);
 
@@ -184,11 +205,11 @@ public class tela extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -219,6 +240,14 @@ public class tela extends javax.swing.JFrame {
     private void menusegurancausuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menusegurancausuarioActionPerformed
         new telausuario(currentuser, auth).setVisible(true);
     }//GEN-LAST:event_menusegurancausuarioActionPerformed
+
+    private void menurelatorioassociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menurelatorioassociadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menurelatorioassociadoActionPerformed
+
+    private void menuferramentasmsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuferramentasmsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuferramentasmsActionPerformed
 
     public void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -252,14 +281,22 @@ public class tela extends javax.swing.JFrame {
     private javax.swing.JMenuBar barramenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JMenu menuadministracao;
+    private javax.swing.JMenu menuadministracaomanutencao;
+    private javax.swing.JMenuItem menuadministracaomanutencaoassociado;
     private javax.swing.JMenu menubi;
     private javax.swing.JMenu menubusca;
     private javax.swing.JMenu menuconfiguracao;
+    private javax.swing.JMenu menuconfiguracaoagendador;
+    private javax.swing.JMenuItem menuconfiguracaoagendadorfi;
     private javax.swing.JMenu menuferramenta;
+    private javax.swing.JMenuItem menuferramentaemail;
+    private javax.swing.JMenuItem menuferramentasms;
     private javax.swing.JMenu menufi;
     private javax.swing.JMenu menurelatorio;
+    private javax.swing.JMenuItem menurelatorioassociado;
+    private javax.swing.JMenuItem menurelatoriodependente;
+    private javax.swing.JMenuItem menurelatoriosegurado;
     private javax.swing.JMenu menuseguranca;
     private javax.swing.JMenuItem menusegurancaempresa;
     private javax.swing.JMenuItem menusegurancalista;

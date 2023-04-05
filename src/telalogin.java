@@ -78,12 +78,12 @@ public class telalogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campologin, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(campologin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(camposenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(camposenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -99,6 +99,8 @@ public class telalogin extends javax.swing.JFrame {
 
         if (auth.login(campologin.getText(), camposenha.getText()) != null) {
             setVisible(false);
+                    String[] permissoesAdmin = {"Empresa", "Usuário", "Permissão", "Lista de Acesso", "Alterar Senha", "Sair"};
+        auth.login(campologin.getText(), camposenha.getText()).permissaoLote(permissoesAdmin));
             new tela(auth.login(campologin.getText(), camposenha.getText()), auth, empresa).setVisible(true);
             
         } else {
