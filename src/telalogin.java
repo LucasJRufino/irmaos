@@ -6,6 +6,7 @@ public class telalogin extends javax.swing.JFrame {
     Usuario currentuser;
     Login auth;
     Empresa empresa;
+    String[] permissoesAdmin = {"Empresa", "Usuário", "Permissão",  "Alterar Senha", "Sair"};
 
     public telalogin(Usuario currentuser, Login auth, Empresa empresa) {
         this.currentuser = currentuser;
@@ -97,12 +98,13 @@ public class telalogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (auth.login(campologin.getText(), camposenha.getText()) != null) {
+        currentuser = auth.login(campologin.getText(), camposenha.getText());
+        if (currentuser != null) {
             setVisible(false);
-                    String[] permissoesAdmin = {"Empresa", "Usuário", "Permissão", "Lista de Acesso", "Alterar Senha", "Sair"};
-        auth.login(campologin.getText(), camposenha.getText()).permissaoLote(permissoesAdmin));
-            new tela(auth.login(campologin.getText(), camposenha.getText()), auth, empresa).setVisible(true);
+            currentuser.permissaoLote(permissoesAdmin);
             
+            new tela(currentuser, auth, empresa).setVisible(true);
+
         } else {
             JOptionPane.showMessageDialog(this, "Login não encontrado no sistema!", "Login", 1);
             campologin.setText(null);
