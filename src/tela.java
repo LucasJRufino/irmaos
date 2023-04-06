@@ -5,7 +5,7 @@ public class tela extends javax.swing.JFrame {
     Usuario currentuser;
     Login auth;
     Empresa empresa;
-    String[] arraypermissoes;
+    
     public tela(Usuario user, Login auth, Empresa empresa) {
         currentuser = user;
         this.auth = auth;
@@ -196,8 +196,7 @@ public class tela extends javax.swing.JFrame {
         menusegurancasair.setVisible(currentuser.temPermissao("Sair"));
 
         barramenu.add(menuseguranca);
-        arraypermissoes = new String[] {"Empresa", "Usuário", "Permissão", "Lista de Acesso", "Alterar Senha", "Sair"};
-        menuseguranca.setVisible(currentuser.checapermissaocategoria(arraypermissoes));
+        menuseguranca.setVisible(currentuser.temPermissao(menuseguranca.getText()));
 
         setJMenuBar(barramenu);
 

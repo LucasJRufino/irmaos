@@ -57,12 +57,4 @@ public class Usuario {
         permissoes.remove(permissao);
     }
 
-    public boolean checapermissaocategoria(String[] categoria) {
-        for (String i : categoria) {
-            if (permissoes.contains(i)) {
-                return true;
-            }
-        }
-        return true;
-    }
 }
